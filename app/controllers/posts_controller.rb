@@ -16,10 +16,9 @@ class PostsController < ApplicationController
 
     if @post.save
       flash[:success] = "Your post was created."
-      render 'show'
+      redirect_to posts_path
     else # in case of validation error
-      flash[:notice] = "There was an error with your post."
-      render 'new'
+      render :new
     end
   end
 
@@ -31,11 +30,10 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
 
     if @post.update(post_params)
-      flash[:success] = "Your post was updated."
-      render 'show'
+      flash[:notice] = "Your post was updated."
+      redirect_to post_path
     else # in case of validation error
-      flash[:notice] = "There was an error with your post."
-      render 'edit'
+      render :edit
     end
   end
 
