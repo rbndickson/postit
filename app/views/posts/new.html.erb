@@ -1,0 +1,11 @@
+<%= render 'shared/content_title', title: 'Create a new post' %>
+
+<%= form_for @post do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <br/>
+  <%= f.label :url %>
+  <%= f.text_field :url %>
+  <br/>
+  <%= f.submit "Create post", class: 'btn btn-primary' %>
+<% end %>
