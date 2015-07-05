@@ -1,4 +1,4 @@
-<%= render 'shared/content_title', title: 'Create a new post' %>
+<%= render 'shared/content_title', title: 'Edit your post' %>
 
 <%= form_for @post do |f| %>
   <%= f.label :title %>
@@ -13,5 +13,5 @@
   <%= f.label :user_id %>
   <%= f.text_field :user_id %>
   <br/>
-  <%= f.submit "Create post", class: 'btn btn-primary' %>
+  <%= f.submit "Update post", class: 'btn btn-primary' %>
 <% end %>

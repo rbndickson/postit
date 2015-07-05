@@ -15,22 +15,31 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
 
     if @post.save
-      flash[:notice] = "Your post was created."
+      flash[:success] = "Your post was created."
+      render 'show'
     else # in case of validation error
       flash[:notice] = "There was an error with your post."
       render 'new'
     end
   end
 
-  def post_params
-    params.require(:post).permit!
-  end
-
   def edit
-
+    @post = Post.find(params[:id])
   end
 
   def update
+    @post = Post.find(params[:id])
+    
+    if @post.update(post_params)
+      flash[:success] = "Your post was updated."
+      render 'show'
+    else # in case of validation error
+      flash[:notice] = "There was an error with your post."
+      render 'edit'
+    end
+  end
 
+  def post_params
+    params.require(:post).permit!
   end
 end
