@@ -29,7 +29,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    
+
     if @post.update(post_params)
       flash[:success] = "Your post was updated."
       render 'show'
@@ -39,7 +39,9 @@ class PostsController < ApplicationController
     end
   end
 
+  private
+
   def post_params
-    params.require(:post).permit!
+    params.require(:post).permit(:title, :url, :description)
   end
 end
