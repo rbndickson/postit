@@ -11,3 +11,11 @@
 <p>
   <%= @post.description %>
 </p>
+<hr/>
+
+Leave a comment:
+<%= form_for [@post, @comment] do |f| %>
+  <%= f.text_area :body, :rows => 4 %>
+  <br/>
+  <%= f.submit 'Create Comment', class: 'btn btn-primary' %>
+<% end %>
