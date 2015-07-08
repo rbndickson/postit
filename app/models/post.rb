@@ -7,5 +7,5 @@ class Post < ActiveRecord::Base
   validates :title, presence: true
   validates :url, presence: true, uniqueness: true
   validates :description, presence: true
-  validates :user_id, presence: true
+  validates :user_id, presence: true, numericality: :integer
 end

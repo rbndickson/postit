@@ -14,8 +14,25 @@
 <hr/>
 
 Leave a comment:
+<!-- submits to /posts/:id/comments -->
 <%= form_for [@post, @comment] do |f| %>
+  <%= render 'shared/errors', submitted_form: @comment %>
   <%= f.text_area :body, :rows => 4 %>
   <br/>
+  <%= f.label :user_id %>
+  <%= f.text_field :user_id %>
   <%= f.submit 'Create Comment', class: 'btn btn-primary' %>
+<% end %>
+
+<h3>Comments:</h3>
+
+<% @post.comments.each do |comment| %>
+  <div class='well span8'>
+    <p>
+      "<i><%= comment.body %></i>"
+    </p>
+    <p>
+      by <%= comment.creator.username %> at <small><%= comment.created_at %></small>
+    </p>
+  </div>
 <% end %>
