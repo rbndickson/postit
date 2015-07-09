@@ -1,18 +1,28 @@
 <%= render 'shared/errors', submitted_form: @post %>
 
+<!-- |form| is a form builder object -->
+<%= form_for @post do |form| %>
+  <%= form.label :title %>
+  <%= form.text_field :title %>
+  <br/>
+  <%= form.label :url %>
+  <%= form.text_field :url %>
+  <br/>
+  <%= form.label :description %>
+  <%= form.text_area :description, :rows => 4 %>
+  <br/>
+  <%= form.label :user_id %>
+  <%= form.text_field :user_id %>
+  <br/>
+  <!--
+  collection_check_boxes(object, method, collection, value_method, text_method,
+  options = {}, html_options = {}, &block) public
+  -->
 
-<%= form_for @post do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <br/>
-  <%= f.label :url %>
-  <%= f.text_field :url %>
-  <br/>
-  <%= f.label :description %>
-  <%= f.text_area :description, :rows => 4 %>
-  <br/>
-  <%= f.label :user_id %>
-  <%= f.text_field :user_id %>
-  <br/>
-  <%= f.submit button_text, class: 'btn btn-primary' %>
+  <%= form.collection_check_boxes(:category_ids, Category.all, :id, :name) do |cat| %>
+    <% cat.label {cat.check_box + cat.text } %>
+  <% end %>
+
+  <%= form.submit button_text, class: 'btn btn-primary' %>
+
 <% end %>

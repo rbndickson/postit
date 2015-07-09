@@ -15,11 +15,11 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-
+    binding.pry
     if @post.save
       flash[:notice] = "Your post was created."
       redirect_to posts_path
-    else # in case of validation error
+    else
       render :new
     end
   end
@@ -30,15 +30,15 @@ class PostsController < ApplicationController
     if @post.update(post_params)
       flash[:notice] = "Your post was updated."
       redirect_to post_path
-    else # in case of validation error
+    else
       render :edit
     end
   end
 
   private
 
-  def post_params # In permit here you whitelist the params that are ok.
-    params.require(:post).permit(:title, :url, :description, :user_id)
+  def post_params
+    params.require(:post).permit(:title, :url, :description, :user_id, category_ids: [])
   end
 
   def set_post
