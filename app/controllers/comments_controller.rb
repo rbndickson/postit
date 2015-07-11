@@ -1,10 +1,10 @@
 class CommentsController < ApplicationController
 
   def create
-    @post = Post.find(params[:post_id]) # :id here is comment_id
+    @post = Post.find(params[:post_id])
     @comment = @post.comments.build(params.require(:comment).permit(:body, :user_id))
-    #build adds @comment.post = @post as well as creating a new @comment object
-    #with parameters by mass assignment
+    # build adds @comment.post = @post as well as creating a new @comment object
+    # with parameters by mass assignment
     if @comment.save
       flash[:notice] = 'Your comment has been saved'
       redirect_to post_path(@post)

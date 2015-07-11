@@ -14,10 +14,6 @@
   <%= form.label :user_id %>
   <%= form.text_field :user_id %>
   <br/>
-  <!--
-  collection_check_boxes(object, method, collection, value_method, text_method,
-  options = {}, html_options = {}, &block) public
-  -->
 
   <%= form.collection_check_boxes(:category_ids, Category.all, :id, :name) do |cat| %>
     <% cat.label {cat.check_box + cat.text } %>
