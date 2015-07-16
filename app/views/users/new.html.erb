@@ -1,1 +1,13 @@
 <%= render 'shared/content_title', title: 'Sign up' %>
+
+<div class="well">
+  <%= form_tag('/users', method: "POST") do %>
+    <%= label_tag(:username, "Username:") %>
+    <%= text_field_tag(:username) %>
+
+    <%= label_tag(:password, "Password:") %>
+    <%= text_field_tag(:password) %>
+    <br/>
+    <%= submit_tag("Sign up", class: 'btn btn-success') %>
+  <% end %>
+</div>
