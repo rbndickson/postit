@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @post = Post.new # this is needed for the model backed form
   end
 
   def create
