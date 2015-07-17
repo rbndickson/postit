@@ -29,12 +29,5 @@
 <h3>Comments:</h3>
 
 <% @post.comments.each do |comment| %>
-  <div class='well span8'>
-    <p>
-      "<i><%= comment.body %></i>"
-    </p>
-    <p>
-      by <%= comment.creator.username %> at <small><%= comment.created_at %></small>
-    </p>
-  </div>
+  <%= render 'comment', comment: comment %>
 <% end %>

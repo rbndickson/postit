@@ -1,0 +1,8 @@
+<div class='well span8'>
+  <p>
+    "<i><%= comment.body %></i>"
+  </p>
+  <p>
+    by <%= link_to comment.creator.username, user_path(comment.creator) %> at <small><%= comment.created_at %></small>
+  </p>
+</div>
