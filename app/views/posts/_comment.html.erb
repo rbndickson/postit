@@ -1,6 +1,9 @@
 <div class='well span8'>
   <p>
     "<i><%= comment.body %></i>"
+      <% if @user %>
+      on <%= link_to comment.post.title, post_path(comment.post) %>
+      <% end %>
   </p>
   <p>
     by <%= link_to comment.creator.username, user_path(comment.creator) %> at <small><%= comment.created_at %></small>
