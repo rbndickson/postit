@@ -15,16 +15,14 @@
 
 <% if logged_in?  %>
 <div>
-  Leave a comment:
   <!-- submits to /posts/:id/comments -->
   <%= form_for [@post, @comment] do |f| %>
     <%= render 'shared/errors', submitted_form: @comment %>
-    <%= f.text_area :body, :rows => 4 %>
-    <br/>
-    <%= f.label :user_id %>
-    <%= f.text_field :user_id %>
-    <br/>
-    <%= f.submit 'Create Comment', class: 'btn btn-primary' %>
+    <div class='control-group'>
+      <%= f.label 'Leave a comment:'%>
+      <%= f.text_area :body, :rows => 4 %>
+    </div>
+      <%= f.submit 'Create Comment', class: 'btn btn-primary' %>
   <% end %>
 </div>
 <% end %>
