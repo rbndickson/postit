@@ -1,13 +1,16 @@
-<%= render 'shared/content_title', title: 'Sign up' %>
+<%= render 'shared/content_title', title: 'Register' %>
 
 <div class="well">
-  <%= form_tag('/users', method: "POST") do %>
-    <%= label_tag(:username, "Username:") %>
-    <%= text_field_tag(:username) %>
 
-    <%= label_tag(:password, "Password:") %>
-    <%= text_field_tag(:password) %>
-    <br/>
-    <%= submit_tag("Sign up", class: 'btn btn-success') %>
+  <%= form_for @user do |f| %>
+    <div class='control-group'>
+    <%= f.label :username %>
+    <%= f.text_field :username  %>
+    </div>
+    <div class='control-group'>
+    <%= f.label :password %>
+    <%= f.text_field :password %>
+    </div>
+    <%= f.submit 'Submit', class: 'btn btn-success' %>
   <% end %>
 </div>
