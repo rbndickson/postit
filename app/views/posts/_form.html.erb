@@ -2,20 +2,22 @@
 
 <!-- |form| is a form builder object -->
 <%= form_for @post do |form| %>
-  <%= form.label :title %>
-  <%= form.text_field :title %>
-  <br/>
-  <%= form.label :url %>
-  <%= form.text_field :url %>
-  <br/>
-  <%= form.label :description %>
-  <%= form.text_area :description, :rows => 4 %>
-  <br/>
-
-  <%= form.collection_check_boxes(:category_ids, Category.all, :id, :name) do |cat| %>
-    <% cat.label {cat.check_box + cat.text } %>
-  <% end %>
-
+  <div class='control-group'>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+  <div class='control-group'>
+    <%= form.label :url %>
+    <%= form.text_field :url %>
+  </div>
+  <div class='control-group'>
+    <%= form.label :description %>
+    <%= form.text_area :description, :rows => 4 %>
+  </div>
+  <div class='control-group'>
+    <%= form.collection_check_boxes :category_ids, Category.all, :id, :name do |cat| %>
+    <% cat.label(class: 'checkbox inline') {cat.check_box(class: 'checkbox') + cat.text } %>
+    <% end %>
+  </div>
   <%= form.submit button_text, class: 'btn btn-primary' %>
-
 <% end %>
