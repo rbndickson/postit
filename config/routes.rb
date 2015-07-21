@@ -8,6 +8,10 @@ PostitTemplate::Application.routes.draw do
 
   resources :posts, except: :destroy do
     resources :comments, only: :create
+
+    member do
+      post :vote # vote_post_path	POST	/posts/:id/vote(.:format)	posts#vote
+    end
   end
 
   resources :categories, only: [:new, :create, :show]

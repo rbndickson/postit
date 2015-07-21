@@ -9,21 +9,17 @@
 
 <div class="tabbable"> <!-- Only required for left/right tabs -->
   <ul class="nav nav-tabs">
-    <li class="active"><a href="#tab1" data-toggle="tab">Posts</a></li>
-    <li><a href="#tab2" data-toggle="tab">Comments</a></li>
+    <li class="active"><a href="#tab1" data-toggle="tab">Posts (<%= current_user.posts.size %>)</a></li>
+    <li><a href="#tab2" data-toggle="tab">Comments (<%= current_user.comments.size %>)</a></li>
   </ul>
   <div class="tab-content">
     <div class="tab-pane active" id="tab1">
-      <p>Posts</p>
-
       <% @user.posts.each do |post| %>
         <%= render '/posts/post', post: post %>
       <% end %>
 
     </div>
     <div class="tab-pane" id="tab2">
-      <p>Comments</p>
-
       <% @user.comments.each do |comment| %>
         <%= render '/posts/comment', comment: comment %>
       <% end %>
