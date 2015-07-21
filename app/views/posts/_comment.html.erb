@@ -1,11 +1,29 @@
-<div class='well span8'>
-  <p>
-    "<i><%= comment.body %></i>"
-      <% if @user %>
-      on <%= link_to comment.post.title, post_path(comment.post) %>
-      <% end %>
-  </p>
-  <p>
-    by <%= link_to comment.creator.username, user_path(comment.creator) %> at <small><%= comment.created_at %></small>
-  </p>
+<div>
+  <div class='well span1 text-center'>
+    <%= link_to vote_post_comment_path(comment, vote: true, id: comment.id), method: 'post' do %>
+  	<i class='icon-arrow-up'></i>
+    </br>
+  	<% end %>
+    <% if comment.total_votes == 1 || comment.total_votes == -1 %>
+      <%= comment.total_votes %> vote
+    <% else %>
+      <%= comment.total_votes %> votes
+    <% end %>
+    </br>
+  	<%= link_to vote_post_comment_path(comment, vote: false, id: comment.id), method: 'post' do %>
+  	  <i class='icon-arrow-down'></i>
+  	<% end %>
+  </div>
+
+  <div class='well span7'>
+    <p>
+      "<i><%= comment.body %></i>"
+        <% if @user %>
+        on <%= link_to comment.post.title, post_path(comment.post) %>
+        <% end %>
+    </p>
+    <p>
+      by <%= link_to comment.creator.username, user_path(comment.creator) %> at <small><%= comment.created_at %></small>
+    </p>
+  </div>
 </div>
