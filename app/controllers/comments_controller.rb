@@ -16,11 +16,11 @@ class CommentsController < ApplicationController
     end
   end
 
-  def vote
-    @comment = Comment.find(params[:id])
-    @vote = Vote.create(votable: @comment, creator: current_user, vote: params[:vote])
+  def vote # don't need to use instance variables here
+    comment = Comment.find(params[:id])
+    vote = Vote.create(votable: comment, creator: current_user, vote: params[:vote])
 
-    if @vote.valid?
+    if vote.valid?
       flash[:notice] = 'Your vote has been counted'
     else
       flash[:error] = 'Error in voting'
