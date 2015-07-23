@@ -1,8 +1,12 @@
-<div class='row'>
-  <div class='span1 well text-center'>
-    <%= link_to vote_post_comment_path(comment.post, comment, vote: true), method: 'post' do %>
-    	<i class='icon-arrow-up'></i><br>
+<div class='row-fluid'>
+  <div class='span2 well text-center'>
+
+    <% if logged_in?  %>
+      <%= link_to vote_post_comment_path(comment.post, comment, vote: true), method: 'post' do %>
+      	<i class='icon-arrow-up'></i><br>
+      <% end %>
     <% end %>
+
     <%= comment.total_votes %>
     <% if comment.total_votes == 1 || comment.total_votes == -1 %>
       vote
@@ -10,12 +14,15 @@
       votes
     <% end %>
     <br>
-  	<%= link_to vote_post_comment_path(comment.post, comment, vote: false), method: 'post' do %>
-  	  <i class='icon-arrow-down'></i>
-  	<% end %>
+
+    <% if logged_in?  %>
+    	<%= link_to vote_post_comment_path(comment.post, comment, vote: false), method: 'post' do %>
+    	  <i class='icon-arrow-down'></i>
+    	<% end %>
+    <% end %>
   </div>
 
-  <div class='well span8'>
+  <div class='well span10'>
     <p>
       "<i><%= comment.body %></i>"
         <% if @user %>
