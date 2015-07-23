@@ -42,7 +42,7 @@ class PostsController < ApplicationController
 	  if @vote.valid?
 	    flash[:notice] = 'Your vote has been counted'
 	  else
-	    flash[:error] = 'Error in voting'
+	    flash[:error] = 'Error, you can only vote once'
     end
 	  redirect_to :back # sends you back to previous url
   end
