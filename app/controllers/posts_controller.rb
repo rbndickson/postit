@@ -25,7 +25,12 @@ class PostsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    if @post.creator != current_user
+      flash[:error] = "You do not have access"
+      redirect_to post_path(@post)
+    end
+  end
 
   def update
     if @post.update(post_params)
