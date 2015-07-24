@@ -1,21 +1,19 @@
-
-
-<% if @post.creator == current_user %>
-<p class='pull-right'>
-  <%= link_to 'Edit this post', edit_post_path(@post) %>
-</p>
-<% end %>
-
 <p>
   <%= render @post.categories %>
 </p>
 
-<p class='pull-right'>
+<%= render 'shared/content_title', title: @post.title %>
+
+<p class="text-center">
+  <% if @post.creator == current_user %>
+  <%= link_to 'Edit this post', edit_post_path(@post) %>
+  <% else %>
   <span class='quiet'>posted by</span> <%= link_to @post.creator.username, user_path(@post.creator) %>
   <small> - <%= format_datetime(@post.created_at) %></small>
+  <% end %>
 </p>
 
-<%= render 'shared/content_title', title: @post.title %>
+<hr>
 
 <p>
   <%= @post.description %>
