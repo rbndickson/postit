@@ -3,8 +3,7 @@
 
     <% if logged_in?  %>
       <%= link_to vote_post_path(post, vote: true), method: 'post' do %>
-      	<i class="icon-arrow-up"></i>
-        <br>
+      	<i class="icon-arrow-up"></i><br>
       <% end %>
     <% end %>
 
