@@ -12,28 +12,30 @@
     <%= yield(:head) %>
   </head>
   <body>
-    <header>
-      <div class="row-fluid">
-        <div class="span12 navbar cont">
-          <div class="span12 navbar-inner cont">
-            <div class='span8 offset2'>
-              <%= render 'layouts/navigation' %>
+    <div class="main-wrap">
+      <header>
+        <div class="row-fluid">
+          <div class="span12 navbar cont">
+            <div class="span12 navbar-inner cont">
+              <div class='span8 offset2'>
+                <%= render 'layouts/navigation' %>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </header>
-    <div id="main" role="main">
-      <!-- <div class="container"> -->
-        <div class="row-fluid">
-          <div class="span8 offset2">
-            <%= render 'layouts/messages' %>
-            <%= yield %>
+      </header>
+      <div id="main" role="main">
+        <!-- <div class="container"> -->
+          <div class="row-fluid">
+            <div class="span8 offset2">
+              <%= render 'layouts/messages' %>
+              <%= yield %>
+            </div>
           </div>
-        </div>
-        <footer>
-        </footer>
-      <!-- </div> -->
-    </div> <!--! end of #main -->
+          <footer>
+          </footer>
+        <!-- </div> -->
+      </div> <!--! end of #main -->
+    </div>
   </body>
 </html>
