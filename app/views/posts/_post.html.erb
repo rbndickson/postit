@@ -1,9 +1,10 @@
-<div class='row-fluid'>
-  <div class='span2 well text-center'>
+<div class="row-fluid">
+  <div class="span2 well text-center">
 
     <% if logged_in?  %>
       <%= link_to vote_post_path(post, vote: true), method: 'post' do %>
-      	<i class='icon-arrow-up'></i><br>
+      	<i class="icon-arrow-up"></i>
+        <br>
       <% end %>
     <% end %>
 
@@ -17,23 +18,19 @@
 
     <% if logged_in?  %>
       <%= link_to vote_post_path(post, vote: false), method: 'post' do %>
-    	  <i class='icon-arrow-down'></i>
+    	  <i class="icon-arrow-down"></i>
     	<% end %>
     <% end %>
   </div>
 
-  <div class='span10 well'>
+  <div class="span10 well">
     <%= render post.categories %>
     <h4><%= link_to post.title, fix_url(post.url) %></h4>
     <p><%= post.description %></p>
     <p>
-      <span class='quiet'>posted by</span> <%= link_to post.creator.username, user_path(post.creator) %>
+      <span class="quiet">posted by</span> <%= link_to post.creator.username, user_path(post.creator) %>
       <small> - <%= format_datetime(post.created_at) %></small>
     </p>
-    <small>
-    <span>
-      <%= link_to("#{post.comments.size} comments", post_path(post)) %>
-    </span>
-    </small>
+    <small><%= link_to("#{post.comments.size} comments", post_path(post)) %></small>
   </div>
 </div>

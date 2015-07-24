@@ -44,9 +44,9 @@ class PostsController < ApplicationController
   def vote
 	  @vote = Vote.create(votable: @post, creator: current_user, vote: params[:vote])
 
-	  if @vote.valid?
+    if @vote.valid?
 	    flash[:notice] = 'Your vote has been counted'
-	  else
+    else
 	    flash[:error] = 'Error, you can only vote once'
     end
 	  redirect_to :back # sends you back to previous url

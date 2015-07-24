@@ -1,80 +1,84 @@
-<!-- navbar and navbar inner are in the application.html -->
-
-<%= link_to 'Postit!', root_path, :class => 'brand left' %>
-<ul class='nav categories'>
-  <li class='nav-item dropdown'>
-    <%= link_to '#', class: 'dropdown-toggle', 'data-toggle' => 'dropdown' do %>
-    Catagories <span class='caret'></span>
-    <% end %>
-    <ul class='dropdown-menu'>
-      <% Category.all.each do |category| %>
-        <li>
-          <%= link_to category.name, category_path(category) %>
-        </li>
-      <% end %>
-      <li class='divider'>
-      </li>
-      <li>
-        <%= link_to(new_category_path) do %>
-          <i class='icon-plus'></i>
-          New Category
-        <% end %>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<% if logged_in? %>
-
-<ul class='nav'>
-  <li class='nav-item'>
-    <div class='btn btn-small btn-success'>
-      <%= link_to 'new post', new_post_path %>
-    </div>
-  </li>
-</ul>
-
-<ul class='nav pull-right'>
-  <li class='nav-item dropdown'>
-    <%= link_to '#', class: 'dropdown-toggle', 'data-toggle' => 'dropdown' do %>
-      <%= current_user.username %>
-      <span class='caret'></span>
-    <% end %>
-
-    <ul class='dropdown-menu'>
-      <li>
-        <%= link_to edit_user_path(current_user) do %>
-          <i class='icon-pencil'></i>
-          Edit Profile
-        <% end %>
-      </li>
-      <li>
-        <%= link_to user_path(current_user) do %>
-        <i class='icon-user'></i>
-        View Profile
-        <% end %>
-      </li>
-      <li>
-        <%= link_to logout_path do %>
-          <i class='icon-circle-arrow-left'></i>
-          Logout
+<div class="span12 navbar cont">
+  <div class="span12 navbar-inner cont">
+    <div class="span8 offset2">
+      <%= link_to "Postit!", root_path, :class => "brand left" %>
+      <ul class="nav categories">
+        <li class="nav-item dropdown">
+          <%= link_to "#", class: "dropdown-toggle", "data-toggle" => "dropdown" do %>
+            Catagories <span class="caret"></span>
           <% end %>
-      </li>
-    </ul>
-  </li>
-</ul>
-<% else %>
-<ul class='nav pull-right'>
-  <li class='nav_item' >
-    <div class='btn btn-small btn-success'>
-      <%= link_to 'Register', register_path %>
-    </div>
-  </li>
+          <ul class="dropdown-menu">
+            <% Category.all.each do |category| %>
+              <li>
+                <%= link_to category.name, category_path(category) %>
+              </li>
+            <% end %>
+            <li class="divider">
+            </li>
+            <li>
+              <%= link_to(new_category_path) do %>
+                <i class="icon-plus"></i>
+                New Category
+              <% end %>
+            </li>
+          </ul>
+        </li>
+      </ul>
 
-  <li>
-    <div class='nav_item btn btn-small btn-primary'>
-      <%= link_to 'Login', login_path %>
+      <% if logged_in? %>
+
+      <ul class="nav">
+        <li class="nav-item">
+          <div class="btn btn-small btn-success">
+            <%= link_to "new post", new_post_path %>
+          </div>
+        </li>
+      </ul>
+
+      <ul class="nav pull-right">
+        <li class="nav-item dropdown">
+          <%= link_to "#", class: 'dropdown-toggle', 'data-toggle' => 'dropdown' do %>
+            <%= current_user.username %>
+            <span class="caret"></span>
+          <% end %>
+
+          <ul class="dropdown-menu">
+            <li>
+              <%= link_to edit_user_path(current_user) do %>
+                <i class="icon-pencil"></i>
+                Edit Profile
+              <% end %>
+            </li>
+            <li>
+              <%= link_to user_path(current_user) do %>
+              <i class="icon-user"></i>
+              View Profile
+              <% end %>
+            </li>
+            <li>
+              <%= link_to logout_path do %>
+                <i class="icon-circle-arrow-left"></i>
+                Logout
+                <% end %>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <% else %>
+      <ul class="nav pull-right">
+        <li class="nav_item" >
+          <div class="btn btn-small btn-success">
+            <%= link_to 'Register', register_path %>
+          </div>
+        </li>
+
+        <li>
+          <div class="nav_item btn btn-small btn-primary">
+            <%= link_to 'Login', login_path %>
+          </div>
+        </li>
+      </ul>
+      <% end %>
     </div>
-  </li>
-</ul>
-<% end %>
+  </div>
+</div>

@@ -1,8 +1,6 @@
 class SessionsController < ApplicationController
 
-  def new # this is the login screen
-
-  end
+  def new; end # this is the login screen
 
   def create # when you submit the login
     user = User.find_by(username: params[:username])

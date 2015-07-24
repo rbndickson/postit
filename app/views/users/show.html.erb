@@ -17,13 +17,11 @@
       <% @user.posts.each do |post| %>
         <%= render '/posts/post', post: post %>
       <% end %>
-
     </div>
     <div class="tab-pane" id="tab2">
       <% @user.comments.each do |comment| %>
         <%= render '/posts/comment', comment: comment %>
       <% end %>
-
     </div>
   </div>
 </div>

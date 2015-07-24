@@ -1,38 +1,32 @@
 <p>
   <%= render @post.categories %>
 </p>
-
 <%= render 'shared/content_title', title: @post.title %>
-
 <p class="text-center">
   <% if @post.creator == current_user %>
-  <%= link_to 'Edit this post', edit_post_path(@post) %>
+    <%= link_to 'Edit this post', edit_post_path(@post) %>
   <% else %>
-  <span class='quiet'>posted by</span> <%= link_to @post.creator.username, user_path(@post.creator) %>
-  <small> - <%= format_datetime(@post.created_at) %></small>
+    <span class="quiet">posted by</span> <%= link_to @post.creator.username, user_path(@post.creator) %>
+    <small> - <%= format_datetime(@post.created_at) %></small>
   <% end %>
 </p>
-
 <p>
   <%= @post.description %>
 </p>
 <hr/>
-
 <% if logged_in?  %>
-<div>
-  <!-- submits to /posts/:id/comments -->
-  <%= form_for [@post, @comment] do |f| %>
-    <%= render 'shared/errors', submitted_form: @comment %>
-    <div class='control-group'>
-      <%= f.label 'Leave a comment:'%>
-      <%= f.text_area :body, :rows => 4 %>
-    </div>
+  <div>
+    <%= form_for [@post, @comment] do |f| %>
+      <%= render 'shared/errors', submitted_form: @comment %>
+      <div class="control-group">
+        <%= f.label 'Leave a comment:'%>
+        <%= f.text_area :body, :rows => 4 %>
+      </div>
       <%= f.submit 'Create Comment', class: 'btn btn-primary' %>
-  <% end %>
-</div>
+    <% end %>
+  </div>
 <% end %>
 <h3>Comments:</h3>
-
 <% @post.comments.sort_by{|x| x.total_votes }.reverse.each do |comment| %>
   <%= render 'comment', comment: comment %>
 <% end %>
