@@ -26,4 +26,8 @@ class Post < ActiveRecord::Base
   def generate_slug
     self.slug = self.title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '') # removes all symbols except -
   end
+
+  def to_param
+    self.slug
+  end
 end

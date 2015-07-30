@@ -27,6 +27,6 @@
   </div>
 <% end %>
 <h3>Comments:</h3>
-<% @post.comments.sort_by{|x| x.total_votes }.reverse.each do |comment| %>
-  <%= render 'comment', comment: comment %>
+<% @post.reload.comments.sort_by{|x| x.total_votes }.reverse.each do |comment| %>
+  <%= render 'comments/comment', comment: comment %>
 <% end %>
