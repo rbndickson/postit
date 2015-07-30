@@ -8,10 +8,11 @@ class Post < ActiveRecord::Base
   validates :title, presence: true
   validates :url, presence: true, uniqueness: true
   validates :description, presence: true
-  validates :user_id, presence: true
+
+  before_save :generate_slug
 
   def total_votes
-    up_votes - down_votes
+    self.up_votes - self.down_votes
   end
 
   def up_votes
@@ -20,5 +21,9 @@ class Post < ActiveRecord::Base
 
   def down_votes
     self.votes.where(vote: false).size
+  end
+
+  def generate_slug
+    self.slug = self.title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '') # removes all symbols except -
   end
 end
