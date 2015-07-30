@@ -7,7 +7,7 @@
       <% end %>
     <% end %>
 
-    <span id="total-votes-<%= post.id %>"><%= post.total_votes %></span>
+    <span id="total-votes-<%= post.slug %>"><%= post.total_votes %></span>
     <% if post.total_votes == 1 || post.total_votes == -1 %>
       vote
     <% else %>
