@@ -20,7 +20,7 @@
     </div>
     <div class="tab-pane" id="tab2">
       <% @user.comments.each do |comment| %>
-        <%= render '/posts/comment', comment: comment %>
+        <%= render '/comments/comment', comment: comment %>
       <% end %>
     </div>
   </div>
