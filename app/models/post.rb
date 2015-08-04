@@ -10,7 +10,7 @@ class Post < ActiveRecord::Base
 
   before_save :generate_slug!
 
-  include Voteable
+  include Votable
 
   def to_param
     self.slug

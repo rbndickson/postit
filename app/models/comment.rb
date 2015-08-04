@@ -5,5 +5,5 @@ class Comment < ActiveRecord::Base
   validates :body, presence: true
   validates :user_id, presence: true, numericality: :integer
 
-  include Voteable
+  include Votable
 end

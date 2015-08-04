@@ -1,4 +1,4 @@
-module Voteable
+module Votable
   extend ActiveSupport::Concern
 
   included do # this is for class methods
