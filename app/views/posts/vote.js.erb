@@ -1,1 +1,7 @@
-$('#total-votes-<%= @post.slug %>').html('<%= @post.total_votes %>');
+<% if @vote.valid? %>
+  $('#total-votes-<%= @post.slug %>').html('<%= @post.total_votes %>');
+<% elsif @vote.vote == true %>
+  alert("Sorry, you have already upvoted this!")
+<% else %>
+  alert("Sorry, you have already downvoted this!")
+<% end %>
