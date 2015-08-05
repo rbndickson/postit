@@ -13,10 +13,6 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
 
-  def admin?
-    current_user.role == "admin"
-  end
-
   def require_user
 	  access_denied unless logged_in?
   end
