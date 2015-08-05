@@ -26,7 +26,7 @@ class PostsController < ApplicationController
   end
 
   def edit
-    if @post.creator != current_user
+    unless current_user == @post.creator || current_user.admin?
       flash[:error] = "You do not have access"
       redirect_to post_path(@post)
     end
@@ -34,8 +34,8 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      flash[:notice] = "Your post was updated."
-      redirect_to post_path
+      flash[:notice] = "Post updated."
+      redirect_to post_path(@post)
     else
       render :edit
     end

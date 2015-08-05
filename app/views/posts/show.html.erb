@@ -3,11 +3,13 @@
 </p>
 <%= render 'shared/content_title', title: @post.title %>
 <p class="text-center">
-  <% if @post.creator == current_user %>
-    <%= link_to 'Edit this post', edit_post_path(@post) %>
-  <% else %>
-    <span class="quiet">posted by</span> <%= link_to @post.creator.username, user_path(@post.creator) %>
-    <small> - <%= format_datetime(@post.created_at) %></small>
+  <% if logged_in? %>
+    <% if current_user == @post.creator || current_user.admin? %>
+      <%= link_to 'Edit this post', edit_post_path(@post) %>
+    <% else %>
+      <span class="quiet">posted by</span> <%= link_to @post.creator.username, user_path(@post.creator) %>
+      <small> - <%= format_datetime(@post.created_at) %></small>
+    <% end %>
   <% end %>
 </p>
 <p>
