@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  helper_method :current_user, :logged_in?, :creator?
+  helper_method :current_user, :logged_in?
   # helper_method enables the methods to be used in views
 
   def current_user
@@ -14,20 +14,12 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
 
-  def creator?
-    current_user == @post.creator
-  end
-
   def require_user
 	  access_denied unless logged_in?
   end
 
   def require_admin
     access_denied unless logged_in? && current_user.admin?
-  end
-
-  def require_creator
-    access_denied unless logged_in? && creator? || current_user.admin?
   end
 
   def access_denied
