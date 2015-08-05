@@ -15,12 +15,14 @@
             <% end %>
             <li class="divider">
             </li>
+            <% if current_user && current_user.username == 'Admin' %>
             <li>
               <%= link_to(new_category_path) do %>
                 <i class="icon-plus"></i>
                 New Category
               <% end %>
             </li>
+            <% end %>
           </ul>
         </li>
       </ul>
