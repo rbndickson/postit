@@ -15,7 +15,7 @@
             <% end %>
             <li class="divider">
             </li>
-            <% if current_user && current_user.role == 'Admin' %>
+            <% if current_user && current_user.role == 'admin' %>
             <li>
               <%= link_to(new_category_path) do %>
                 <i class="icon-plus"></i>

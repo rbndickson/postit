@@ -2,7 +2,12 @@ class CategoriesController < ApplicationController
   before_action :require_user, except: [:show]
 
   def new
-    @category = Category.new
+    if current_user.role != "admin"
+      flash[:error] = "You do not have access"
+      redirect_to root_path
+    else
+      @category = Category.new
+    end
   end
 
   def create
