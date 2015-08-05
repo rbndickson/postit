@@ -13,11 +13,20 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
 
-  def require_user
-	  if !logged_in?
-	    flash[:error] = "Sorry you do not have access"
-	    redirect_to root_path
-	  end
+  def admin?
+    current_user.role == "admin"
   end
 
+  def require_user
+	  access_denied unless logged_in?
+  end
+
+  def require_admin
+    access_denied unless logged_in? && admin?
+  end
+
+  def access_denied
+    flash[:error] = "Sorry you do not have access"
+    redirect_to root_path
+  end
 end

@@ -1,20 +1,16 @@
 class CategoriesController < ApplicationController
   before_action :require_user, except: [:show]
+  before_action :require_admin, except: [:show]
 
   def new
-    if current_user.role != "admin"
-      flash[:error] = "You do not have access"
-      redirect_to root_path
-    else
-      @category = Category.new
-    end
+    @category = Category.new
   end
 
   def create
     @category = Category.new(category_params)
 
     if @category.save
-      flash[:notice] = "Category added successfully"
+      flash[:success] = "Category added successfully"
       redirect_to root_path
     else
       render :new
