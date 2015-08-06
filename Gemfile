@@ -14,6 +14,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'bcrypt-ruby', '=3.0.1'
 
+gem 'votable-rbn', '= 0.1.2'
+
 group :doc do
   gem 'sdoc', require: false
 end
