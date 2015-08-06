@@ -29,7 +29,7 @@
         <% end %>
     </p>
     <p>
-      by <%= link_to comment.creator.username, user_path(comment.creator) %> at <small><%= comment.created_at %></small>
+      <span class="quiet">by </span><%= link_to comment.creator.username, user_path(comment.creator) %> on <small><%= format_datetime(comment.created_at) %></small>
     </p>
   </div>
 </div>

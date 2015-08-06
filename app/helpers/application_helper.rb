@@ -5,7 +5,7 @@ module ApplicationHelper
   end
 
   def format_datetime(time)
-    time.to_formatted_s(:short)
+    time.strftime("%B %d %Y, %T %Z")
   end
 
 end
