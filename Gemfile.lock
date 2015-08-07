@@ -30,6 +30,8 @@ GEM
     bcrypt-ruby (3.0.1)
     bootstrap-sass (2.3.2.0)
       sass (~> 3.2)
+    bootstrap-will_paginate (0.0.10)
+      will_paginate
     builder (3.1.4)
     coderay (1.0.9)
     coffee-rails (4.0.0)
@@ -123,6 +125,7 @@ GEM
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
     votable-rbn (0.1.2)
+    will_paginate (3.0.7)
 
 PLATFORMS
   ruby
@@ -130,6 +133,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt-ruby (= 3.0.1)
   bootstrap-sass (~> 2.3.2.0)
+  bootstrap-will_paginate (~> 0.0.10)
   coffee-rails (~> 4.0.0)
   jbuilder (~> 1.2)
   jquery-rails
@@ -144,6 +148,7 @@ DEPENDENCIES
   turbolinks
   uglifier (>= 1.3.0)
   votable-rbn (= 0.1.2)
+  will_paginate (~> 3.0.5)
 
 BUNDLED WITH
    1.10.6

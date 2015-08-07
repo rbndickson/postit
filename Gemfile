@@ -15,6 +15,10 @@ gem 'jbuilder', '~> 1.2'
 gem 'bcrypt-ruby', '=3.0.1'
 
 gem 'votable-rbn', '= 0.1.2'
+gem 'will_paginate', '~> 3.0.5'
+gem 'bootstrap-will_paginate', '~> 0.0.10'
+
+
 
 group :doc do
   gem 'sdoc', require: false
