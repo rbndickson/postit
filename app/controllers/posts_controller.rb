@@ -5,7 +5,10 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all.sort_by{|x| x.total_votes }.reverse.paginate(page: params[:page], per_page: 5)
-    # .all.sort_by{|x| x.total_votes }.reverse
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def show
