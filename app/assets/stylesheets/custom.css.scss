@@ -1,8 +1,16 @@
 .btn {
   a, a:hover, a:focus {
     text-decoration: none;
-    color: #fff;
+    color: white;
   }
+}
+
+a {
+  color: #007ee5;
+}
+
+a:hover, a:focus {
+  color: #2e9fff;
 }
 
 .brand.left {
@@ -14,11 +22,73 @@
   padding-left: 45px;
 }
 
+.navbar .brand {
+  color: white;
+  text-shadow: none;
+}
+
+.caret {
+  border-top: 4px solid white;
+}
+
+.navbar .nav > li > a:focus, .navbar .nav > li > a:hover, {
+  color: white;
+  border-top-color: white;
+  border-bottom-color: white;
+}
+
+.navbar .nav li.dropdown.open > .dropdown-toggle,
+.navbar .nav li.dropdown.active > .dropdown-toggle,
+.navbar .nav li.dropdown.open.active > .dropdown-toggle {
+  background-image: linear-gradient(to bottom, #007ee5, #2e9fff);
+  color: #fff;
+}
+
+li.dropdown > a:hover .caret, .navbar .nav li.dropdown > a:focus .caret,
+.navbar .nav li.dropdown > .dropdown-toggle .caret,
+.navbar .nav li.dropdown.open > .dropdown-toggle .caret,
+.navbar .nav li.dropdown.active > .dropdown-toggle .caret,
+.navbar .nav li.dropdown.open.active > .dropdown-toggle .caret,
+.navbar .nav li.dropdown > a:hover .caret, .navbar .nav li.dropdown > a:focus .caret {
+  border-top-color: white;
+  border-bottom-color: white;
+  color: white;
+}
+
+.navbar .nav > li > a {
+  color: white;
+  text-shadow: none;
+}
+
 .navbar-inner {
   padding-left: 0px;
   padding-right: 0px;
+  background-image: linear-gradient(to bottom, #007ee5, #2e9fff);
 }
 
 .main-wrap {
   min-width: 600px;
+  background-color: #F2F7FA;
+}
+
+.well {
+  background-color: white;
+}
+
+.label, .badge {
+  background-color: #2e9fff;
+}
+
+.nav-tabs > li > a {
+  background-color: transparent;
+}
+
+.nav-tabs > li > a:hover {
+  background-color: transparent;
+}
+
+.nav-tabs > .active > a,
+.nav-tabs > .active > a:hover,
+.nav-tabs > .active > a:focus {
+  background-color: transparent;
 }
